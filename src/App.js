@@ -45,7 +45,7 @@ class App extends Component {
         <button onClick={this.next}>Next</button>
       {
       this.state.collections.map(c => {
-      return (<div class="nft" key={c.name}>
+      return (<div key={c.name}>
          <p>{c.name}</p>
          <img src={c.image_url}></img>
         </div>)}
