@@ -16,12 +16,12 @@ class App extends Component {
     this.getCollections();
   }
   next = () => {
-    this.setState({offset: this.state.offset+5})
-    this.getCollections()
+    this.setState({offset: this.state.offset+5});
+    this.getCollections();
   }
   previous = () => {
-    this.setState({offset: this.state.offset-5})
-    this.getCollections()
+    this.setState({offset: this.state.offset-5});
+    this.getCollections();
   }
 
   //Function to get the Customer Data from json
@@ -29,16 +29,24 @@ class App extends Component {
     axios.get(`https://api.opensea.io/api/v1/collections?offset=${this.state.offset}&limit=5`)
     .then(response => {
       this.setState({collections: response.data.collections})
-    })
-  };
+    });
+  }
 
   render() {
-    if (this.state.collections.length == 0)
-      return (<div>Loading...</div>)
+    if (this.state.collections.length === 0)
+      return (<div>Loading...</div>);
     
-    return (<div>
+    let buttons;
+    if (this.state.offset >= 5) {
+      buttons = <div>
       <button onClick={this.previous}>Previous</button>
       <button onClick={this.next}>Next</button>
+      </div>
+    } else {
+      buttons = <div><button onClick={this.next}>Next</button></div>
+    }
+    return (<div>
+      {buttons}
       {
       this.state.collections.map(c => {
       return (<div key={c.name}>
@@ -47,7 +55,7 @@ class App extends Component {
         </div>)}
         )
       }
-    </div>)
+    </div>);
   }
 }
 
