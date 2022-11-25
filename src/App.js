@@ -47,7 +47,7 @@ class App extends Component {
       buttons = <div><button class='button' onClick={this.next}>Next</button></div>
     }
 
-    return (<div>
+    return (<div className="App">
       {buttons}
       {
       this.state.collections.map(c => {
