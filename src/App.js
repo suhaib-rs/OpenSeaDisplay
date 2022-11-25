@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import './App.css';
+import noImg from'./noimg.png';
 
 var offset = 0
 class App extends Component {
@@ -53,7 +54,7 @@ class App extends Component {
       this.state.collections.map(c => {
       return (<div key={c.name}>
          <p>{c.name}</p>
-         <img src={c.image_url}></img>
+         <img src={c.image_url ? c.image_url : noImg} alt="NFT images"></img>
         </div>)}
         )
       }
