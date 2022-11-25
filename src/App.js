@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import './App.css';
 
 var offset = 0
 class App extends Component {
@@ -39,11 +40,11 @@ class App extends Component {
     let buttons;
     if (offset >= 5) {
       buttons = <div>
-      <button onClick={this.previous}>Previous</button>
-      <button onClick={this.next}>Next</button>
+      <button class='button' onClick={this.previous}>Previous</button>
+      <button class='button' onClick={this.next}>Next</button>
       </div>
     } else {
-      buttons = <div><button onClick={this.next}>Next</button></div>
+      buttons = <div><button class='button' onClick={this.next}>Next</button></div>
     }
 
     return (<div>
