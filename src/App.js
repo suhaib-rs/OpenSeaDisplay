@@ -4,6 +4,7 @@ import './App.css';
 import noImg from'./noimg.png';
 
 var offset = 0
+const limit = 5
 class App extends Component {
 
   constructor(props) {
@@ -28,7 +29,7 @@ class App extends Component {
 
   //Function to get the Customer Data from json
   getCollections() {
-    axios.get(`https://api.opensea.io/api/v1/collections?offset=${offset}&limit=5`)
+    axios.get(`https://api.opensea.io/api/v1/collections?offset=${offset}&limit=${limit}`)
     .then(response => {
       this.setState({collections: response.data.collections})
     });
@@ -41,11 +42,11 @@ class App extends Component {
     let buttons;
     if (offset >= 5) {
       buttons = <div>
-      <button class='button' onClick={this.previous}>Previous</button>
-      <button class='button' onClick={this.next}>Next</button>
+      <button className='button' onClick={this.previous}>Previous</button>
+      <button className='button' onClick={this.next}>Next</button>
       </div>
     } else {
-      buttons = <div><button class='button' onClick={this.next}>Next</button></div>
+      buttons = <div><button className='button' onClick={this.next}>Next</button></div>
     }
 
     return (<div className="App">
