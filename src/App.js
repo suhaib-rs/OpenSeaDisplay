@@ -45,6 +45,7 @@ class App extends Component {
     } else {
       buttons = <div><button onClick={this.next}>Next</button></div>
     }
+
     return (<div>
       {buttons}
       {
@@ -55,6 +56,7 @@ class App extends Component {
         </div>)}
         )
       }
+      {buttons}
     </div>);
   }
 }
