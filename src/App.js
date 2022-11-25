@@ -34,15 +34,11 @@ class App extends Component {
 
   render() {
     if (this.state.collections.length == 0)
-      return (<div>
-        Loading...
-        </div>)
+      return (<div>Loading...</div>)
     
     return (<div>
-
-
-<button onClick={this.previous}>Previous</button>
-        <button onClick={this.next}>Next</button>
+      <button onClick={this.previous}>Previous</button>
+      <button onClick={this.next}>Next</button>
       {
       this.state.collections.map(c => {
       return (<div key={c.name}>
