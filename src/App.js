@@ -3,8 +3,10 @@ import axios from 'axios';
 import './App.css';
 import noImg from'./noimg.png';
 
+// Variables which control the API request to /collections endpoint
 var offset = 0
 const limit = 5
+
 class App extends Component {
 
   constructor(props) {
@@ -14,22 +16,20 @@ class App extends Component {
     }
   }
 
-  //function which is called the first time the component loads
+  // Function which is called the first time the component loads
   componentDidMount() {
     this.getCollections();
   }
   next = () => {
-    offset += 5;
-    //console.log("Next "+offset)
+    offset += limit;
     this.getCollections();
   }
   previous = () => {
-    offset -= 5;
-    //console.log("Prev "+offset)
+    offset -= limit;
     this.getCollections();
   }
 
-  //Function to get the Customer Data from json
+  // Function to get the Customer Data from json
   getCollections() {
     axios.get(`https://api.opensea.io/api/v1/collections?offset=${offset}&limit=${limit}`)
     .then(response => {

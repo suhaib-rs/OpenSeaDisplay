@@ -19,6 +19,8 @@
 
 .collection {
     font-size: 20px;
+    width: 40%;
+    margin: 0 auto;
 }
 
 .collection:hover {
@@ -26,5 +28,5 @@
 }
 
 img {
-    width: 20%;
+    width: 40%;
 }
