@@ -20,10 +20,12 @@ class App extends Component {
   }
   next = () => {
     offset += 5;
+    //console.log("Next "+offset)
     this.getCollections();
   }
   previous = () => {
     offset -= 5;
+    //console.log("Prev "+offset)
     this.getCollections();
   }
 
@@ -53,7 +55,7 @@ class App extends Component {
       {buttons}
       {
       this.state.collections.map(c => {
-      return (<div key={c.name}>
+      return (<div className='collection' key={c.name}>
          <p>{c.name}</p>
          <img src={c.image_url ? c.image_url : noImg} alt="NFT images"></img>
         </div>)}
